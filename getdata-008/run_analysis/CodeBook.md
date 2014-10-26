@@ -12,8 +12,8 @@ The analysis uses the data set "Human Activity Recognition Using Smartphones Dat
 
 provided in the UCI Machine Learning Repository:
 
-| Raw data | https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip |
-| Raw data description | http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones |
+* [Raw data](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+* [Raw data description](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ## Transformation details
 
@@ -41,8 +41,8 @@ The script was run with R 3.1.1 within RStudio in a Linux environment.
 
 ## Result files
 
-| tidy_data.txt    | contains mean and standard deviation for each measurements from the train and test data |
-| average_data.txt | contains a tidy data set with the average of each variable for each activity and each subject |
+* tidy_data.txt contains mean and standard deviation for each measurements from the train and test data |
+* average_data.txt contains a tidy data set with the average of each variable for each activity and each subject |
 
 If you want to load those files using R, use the following commands:
 
