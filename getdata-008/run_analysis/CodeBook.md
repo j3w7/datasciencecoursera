@@ -1,0 +1,54 @@
+# CodeBook
+
+This code book describes the variables, the data, and transformations that were performed to clean up the data.
+
+## Raw data
+
+The analysis uses the data set "Human Activity Recognition Using Smartphones Data Set" by 
+
+> Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+> Smartlab - Non Linear Complex Systems Laboratory
+> DITEN - Università degli Studi di Genova, Genoa I-16145, Italy. 
+
+provided in the UCI Machine Learning Repository:
+
+| Raw data | https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip |
+| Raw data description | http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones |
+
+## Transformation details
+
+The data set is transformed using the following steps:
+
+0. Download of the raw data.
+1. Merge of the training and the test sets to create one data set.
+2. Extraction of the measurements on the mean and standard deviation for each measurement.
+3. Introduction of descriptive names for the activities in the data set.
+4. Introduction of appropriate labels with descriptive activity names.
+5. Creation of a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+## How to run the analysis
+
+Clone this repository. Load the script into R:
+
+~~~R
+source("run_analysis.R")
+~~~
+
+Data download and analysis should start automatically. 
+The analysis will be performed and the result written to the files tidy_data.tt.
+
+The script was run with R 3.1.1 within RStudio in a Linux environment.
+
+## Result files
+
+| tidy_data.txt    | contains mean and standard deviation for each measurements from the train and test data |
+| average_data.txt | contains a tidy data set with the average of each variable for each activity and each subject |
+
+If you want to load those files using R, use the following commands:
+
+~~~R
+tidy_data    <- read.table('tidy_data.txt')
+average_data <- read.table('average_data')
+~~~
+
+
