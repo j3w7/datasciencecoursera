@@ -22,8 +22,8 @@ The data set is transformed using the following steps:
 0. Download of the raw data.
 1. Merge of the training and the test sets to create one data set.
 2. Extraction of the measurements on the mean and standard deviation for each measurement.
-3. Introduction of descriptive names for the activities in the data set.
-4. Introduction of appropriate labels with descriptive activity names.
+3. Introduction of descriptive names.
+4. Creation of the tidy data set.
 5. Creation of a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ## How to run the analysis
