@@ -10,7 +10,7 @@ insist <- function(pkg){
 
 # require (and maybe install) depencendy
 insist ("reshape2")
-#(insist "data.table")
+insist ("plyr")
 
 ##
 # 0. Download dataset and read relevant data
@@ -47,7 +47,7 @@ subject_data <- rbind(subject_train, subject_test)
 x_data       <- rbind(x_train, x_test)
 y_data       <- rbind(y_train, y_test)
 
-data <- list(x=subject_data, y=x_data, subject=subject_data)
+data <- list(x=x_data, y=y_data, subject=subject_data)
 
 ##
 # 2. Extract the measurements on the mean and standard deviation for each measurement.
@@ -66,22 +66,21 @@ data$x <- extracted_data
 ##
 # 3. Use descriptive activity namesm and appropriate labels with descriptive variable names.
 
-colnames(data$y) <- "Activity"
-data$y$activity[data$y$activity == 1] = "WALKING"
-data$y$activity[data$y$activity == 2] = "WALKING_UPSTAIRS"
-data$y$activity[data$y$activity == 3] = "WALKING_DOWNSTAIRS"
-data$y$activity[data$y$activity == 4] = "SITTING"
-data$y$activity[data$y$activity == 5] = "STANDING"
-data$y$activity[data$y$activity == 6] = "LAYING"
+colnames(data$y) <- c("Activity")
+data$y$Activity[data$y$Activity == 1] = "WALKING"
+data$y$Activity[data$y$Activity == 2] = "WALKING_UPSTAIRS"
+data$y$Activity[data$y$Activity == 3] = "WALKING_DOWNSTAIRS"
+data$y$Activity[data$y$Activity == 4] = "SITTING"
+data$y$Activity[data$y$Activity == 5] = "STANDING"
+data$y$Activity[data$y$Activity == 6] = "LAYING"
 
 colnames(data$subject) <- c("Subject")
 
 ##
-# 4. Create the tidy data set.
+# 4. Create the tidy data set with averages.
 
-df <- bind.data(data$x, data$y, data$subject)
+df <- cbind(data$x, data$y, data$subject)
 
-# Create tidy dataset
-tidy_data <- create.tidy.dataset(combined)
+tidy_data <- ddply(df, .(Subject, Activity), function(x) colMeans(x[,1:60]))
 
-write.csv(tidy, "tidy_data.txt", row.names=FALSE)
+write.csv(tidy_data, "tidy_data.txt", row.names=FALSE)

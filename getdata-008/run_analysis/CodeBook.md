@@ -23,8 +23,7 @@ The data set is transformed using the following steps:
 1. Merge of the training and the test sets to create one data set.
 2. Extraction of the measurements on the mean and standard deviation for each measurement.
 3. Introduction of descriptive names.
-4. Creation of the tidy data set.
-5. Creation of a second, independent tidy data set with the average of each variable for each activity and each subject.
+4. Creation of the tidy data set, including averages.
 
 ## How to run the analysis
 
@@ -48,7 +47,6 @@ If you want to load those files using R, use the following commands:
 
 ~~~R
 tidy_data    <- read.table('tidy_data.txt')
-average_data <- read.table('average_data')
 ~~~
 
 
